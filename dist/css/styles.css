@@ -1,0 +1,93 @@
+body {
+ width: 100%;
+ max-width: 960px;
+ min-width: 380px;
+ height: 100vh;
+ margin: 0 auto;
+ background-color: #ddd;
+ font-family: Times, Verdana, Helvetica, sans-serif;
+ font-size: 16px;
+}
+
+.wrapper {
+ display: flex;
+ flex-flow: column nowrap;
+ justify-content: space-between;
+}
+
+.main-header {
+ display: flex;
+ flex-flow: row nowrap;
+ align-items: center;
+ justify-content: space-around;
+ margin-bottom: auto;
+}
+
+.main-header h1 {
+ font-size: 36px;
+ letter-spacing: 1px;
+ text-align: center;
+ text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+}
+
+.main-header button {
+ width: 50px;
+ font-size: 18px;
+ border-radius: 5px;
+ padding: 5px 0 3px 0;
+}
+
+.content {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: center;
+ align-items: center;
+}
+
+.content div {
+ display: flex;
+ flex-flow: column nowrap;
+ justify-content: center;
+ width: 30%;
+ min-height: 200px;
+ text-align: center;
+ margin: 0 5px 10px 5px;
+ border: 1px solid #ccc;
+ padding: 10px;
+ box-shadow: 3px 3px 4px rgba(0,0,0,.3); 
+}
+
+.popup {
+ width: 173px;
+ display: none;
+ position: fixed;
+ top: 20%;
+ left: 40%;
+ background-color: #ddd;
+ text-align: center;
+ margin: 0 auto;
+ margin-top: 50px;
+ border: solid #bbb 1px;
+ border-radius: 4px;
+ padding: 5px;
+ box-shadow: 2px 2px 3px rgba(0,0,0,.3);
+}
+
+.popup textarea {
+ width: auto;
+ height: 100px;
+ background-color: #f1f1f1;
+ margin-bottom: 3px;
+ padding: 4px;
+}
+
+.popup textarea:focus {
+ background-color: #fff; 
+}
+
+.popup span {
+ display: none;
+ font-size: 12px; 
+ margin-top: 3px;
+ color: red;
+}

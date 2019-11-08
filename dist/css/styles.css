@@ -22,7 +22,7 @@ body {
  flex-flow: row nowrap;
  align-items: center;
  justify-content: space-around;
- margin-bottom: auto;
+ margin: 25px 0;
 }
 
 .main-header h1 {
@@ -60,8 +60,9 @@ body {
  width: 173px;
  display: none;
  position: fixed;
- top: 20%;
- left: 40%;
+ top: 30%;
+ left: 50%;
+ transform: translate(-50%, -50%);
  background-color: #ddd;
  text-align: center;
  margin: 0 auto;

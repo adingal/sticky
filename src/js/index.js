@@ -4,7 +4,7 @@ var popup = document.querySelector('.popup');
 var addBtn = document.querySelector('.addBtn');
 var submitBtn = document.querySelector('.submitBtn');
 var cancelBtn = document.querySelector('.cancelBtn');
-var textArea = document.getElementsByTagName('textarea');
+var textArea = document.querySelector('.textArea');
 var warning = document.querySelector('.popup span');
 
 // INSERT QUOTE
@@ -39,34 +39,48 @@ function randomColor() {
   return tempString;
 }
 
-// ADD BTN
-addBtn.addEventListener('click', function() {
-  popup.style.display = 'block';
-  textArea[0].focus();
-  warning.style.display = 'none';
-});
+// CLEAR ELEMENT VALUE
+function clear(element) {
+  if (element.value) {
+    element.value = '';
+  } 
+}
 
-// SUBMIT BTN
-submitBtn.addEventListener('click', function() {
-  var textValue = textArea[0].value;
+// EVENT LISTENERS
+document.addEventListener('click', (e) => {
+  var target = e.target;
+  var targetClass = target.className;
+  var textValue = textArea.value;
 
-  if (textValue) {
-    insertQuote(textValue, randomColor);
-    textArea[0].textContent = '';
-    popup.style.display = 'none'; 
-  } else {
-    warning.style.display = 'block';
+  // add button
+  if (targetClass == 'addBtn') {
+
+    popup.style.display = 'block';
+    clear(textArea);
+    textArea.focus();
+    warning.style.display = 'none';
+
+  // submit button
+  } else if (targetClass == 'submitBtn') {
+
+    if (textValue) {
+      insertQuote(textValue, randomColor);
+      clear(textArea);
+      popup.style.display = 'none';
+    } else {
+      warning.style.display = 'block';
+    } 
+
+  // cancel button
+  } else if (targetClass == 'cancelBtn') {
+
+    clear(textArea);
+    popup.style.display = 'none';
+    warning.style.display = 'none';
+
   }
-
+  
 });
-
-// CANCEL BTN
-cancelBtn.addEventListener('click', function() {
-  textArea[0].textContent = '';
-  popup.style.display = 'none';
-  warning.style.display = 'none';
-});
-
 
 
 

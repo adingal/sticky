@@ -9,57 +9,62 @@ var warning = document.querySelector('.popup span');
 
 // INSERT QUOTE
 function insertQuote(msg, color) {
- var newContent = '';
- var newDiv = document.createElement('div');
- newDiv.setAttribute('class', 'data');
+  var newContent = '';
+  var newDiv = document.createElement('div');
 
- newContent = '<p>' + msg + '</p>';
+  newDiv.setAttribute('class', 'data');
 
- newDiv.innerHTML = newContent;
- newDiv.style.backgroundColor = color();
+  newContent += '<span class="closeBtn">';
+  newContent += '<img src="images/close-icon.png" alt="Close button">';
+  newContent += '</span>';
+  newContent += '<p>' + msg + '</p>';
 
- container.appendChild(newDiv);
+
+  newDiv.innerHTML = newContent;
+  newDiv.style.backgroundColor = color();
+
+  container.appendChild(newDiv);
 }
 
 // RANDOM COLOR
 function randomColor() {
- let colorArr = [];
- let tempString;
- for (var i = 0; i < 3; i++) {
-  var rnd = Math.floor(Math.random() * 255);
-  colorArr.push(rnd);
- }
- 
- tempString = `rgba(${colorArr[0]}, ${colorArr[1]}, ${colorArr[2]}, 0.3)`;
- return tempString;
+  let colorArr = [];
+  let tempString;
+  for (var i = 0; i < 3; i++) {
+    var rnd = Math.floor(Math.random() * 255);
+    colorArr.push(rnd);
+  }
+  
+  tempString = `rgba(${colorArr[0]}, ${colorArr[1]}, ${colorArr[2]}, 0.3)`;
+  return tempString;
 }
 
 // ADD BTN
 addBtn.addEventListener('click', function() {
- popup.style.display = 'block';
- textArea[0].focus();
- warning.style.display = 'none';
+  popup.style.display = 'block';
+  textArea[0].focus();
+  warning.style.display = 'none';
 });
 
 // SUBMIT BTN
 submitBtn.addEventListener('click', function() {
- var textValue = textArea[0].value;
+  var textValue = textArea[0].value;
 
- if (textValue) {
-  insertQuote(textValue, randomColor);
-  textArea[0].textContent = '';
-  popup.style.display = 'none'; 
- } else {
-  warning.style.display = 'block';
- }
+  if (textValue) {
+    insertQuote(textValue, randomColor);
+    textArea[0].textContent = '';
+    popup.style.display = 'none'; 
+  } else {
+    warning.style.display = 'block';
+  }
 
 });
 
 // CANCEL BTN
 cancelBtn.addEventListener('click', function() {
- textArea[0].textContent = '';
- popup.style.display = 'none';
- warning.style.display = 'none';
+  textArea[0].textContent = '';
+  popup.style.display = 'none';
+  warning.style.display = 'none';
 });
 
 

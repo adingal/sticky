@@ -4,6 +4,7 @@ var popup = document.querySelector('.popup');
 var addBtn = document.querySelector('.addBtn');
 var submitBtn = document.querySelector('.submitBtn');
 var cancelBtn = document.querySelector('.cancelBtn');
+var closeBtn = document.querySelector('.closeBtn');
 var textArea = document.querySelector('.textArea');
 var warning = document.querySelector('.popup span');
 
@@ -14,8 +15,8 @@ function insertQuote(msg, color) {
 
   newDiv.setAttribute('class', 'data');
 
-  newContent += '<span class="closeBtn">';
-  newContent += '<img src="images/close-icon.png" alt="Close button">';
+  newContent += '<span>';
+  newContent += '<img class="closeBtn" src="images/close-icon.png" alt="Close button">';
   newContent += '</span>';
   newContent += '<p>' + msg + '</p>';
 
@@ -77,6 +78,10 @@ document.addEventListener('click', (e) => {
     clear(textArea);
     popup.style.display = 'none';
     warning.style.display = 'none';
+
+  } else if (targetClass == 'closeBtn') {
+
+    target.parentNode.parentNode.remove();
 
   }
   

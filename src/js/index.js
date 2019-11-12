@@ -1,12 +1,15 @@
 // ELEMENTS
-var container = document.querySelector('.content');
-var popup = document.querySelector('.popup');
-var addBtn = document.querySelector('.addBtn');
-var submitBtn = document.querySelector('.submitBtn');
-var cancelBtn = document.querySelector('.cancelBtn');
-var closeBtn = document.querySelector('.closeBtn');
-var textArea = document.querySelector('.textArea');
-var warning = document.querySelector('.popup span');
+var elements = {
+  'container' : document.querySelector('.content'),
+  'popup' : document.querySelector('.popup'),
+  'addBtn' : document.querySelector('.addBtn'),
+  'submitBtn' : document.querySelector('.submitBtn'),
+  'cancelBtn' : document.querySelector('.cancelBtn'),
+  'closeBtn' : document.querySelector('.closeBtn'),
+  'textArea' : document.querySelector('.textArea'),
+  'warning' : document.querySelector('.popup span')
+}
+
 
 // INSERT QUOTE
 function insertQuote(msg, color) {

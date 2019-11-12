@@ -43,12 +43,15 @@ function randomColor() {
   return tempString;
 }
 
-// CLEAR ELEMENT VALUE
-function clear(element) {
-  if (element.value) {
-    element.value = '';
+// CLEAR TEXTAREA VALUE
+function clear() {
+  var el = elements.textArea;
+
+  if (el.value) {
+    el.value = '';
   } 
 }
+
 
 // EVENT LISTENERS
 document.addEventListener('click', (e) => {
@@ -60,7 +63,7 @@ document.addEventListener('click', (e) => {
   if (targetClass == 'addBtn') {
 
     elements.popup.style.display = 'block';
-    clear(elements.textArea);
+    clear();
     elements.textArea.focus();
     elements.warning.style.display = 'none';
 
@@ -69,7 +72,7 @@ document.addEventListener('click', (e) => {
 
     if (textValue) {
       insertQuote(textValue, randomColor);
-      clear(elements.textArea);
+      clear();
       elements.popup.style.display = 'none';
     } else {
       elements.warning.style.display = 'block';
@@ -78,10 +81,11 @@ document.addEventListener('click', (e) => {
   // cancel button
   } else if (targetClass == 'cancelBtn') {
 
-    clear(elements.textArea);
+    clear();
     elements.popup.style.display = 'none';
     elements.warning.style.display = 'none';
-
+  
+  // close button
   } else if (targetClass == 'closeBtn') {
 
     target.parentNode.parentNode.remove();
@@ -89,42 +93,3 @@ document.addEventListener('click', (e) => {
   }
   
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Parsing JSON
- 
-var xhr = new XMLHttpRequest();
-xhr.onload = function() {
-   responseObject = JSON.parse(xhr.responseText);
-   var newContent = '';
-   for (var i = 0; i < responseObject.data.length; i++) {
-    newContent += '<div class="data">';
-    newContent += '<p class="quotes">' + responseObject.data[i].quotes + '</p>';
-    newContent += '<p class="author">' + responseObject.data[i].author + '</p>';
-    newContent += '</div>';
-  }
-  
-  container.innerHTML = newContent;
-
-};
-
-xhr.open('GET', 'data.json', true);
-xhr.send(null);
-*/

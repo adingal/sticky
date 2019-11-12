@@ -27,7 +27,7 @@ function insertQuote(msg, color) {
   newDiv.innerHTML = newContent;
   newDiv.style.backgroundColor = color();
 
-  container.appendChild(newDiv);
+  elements.container.appendChild(newDiv);
 }
 
 // RANDOM COLOR
@@ -54,33 +54,33 @@ function clear(element) {
 document.addEventListener('click', (e) => {
   var target = e.target;
   var targetClass = target.className;
-  var textValue = textArea.value;
+  var textValue = elements.textArea.value;
 
   // add button
   if (targetClass == 'addBtn') {
 
-    popup.style.display = 'block';
-    clear(textArea);
-    textArea.focus();
-    warning.style.display = 'none';
+    elements.popup.style.display = 'block';
+    clear(elements.textArea);
+    elements.textArea.focus();
+    elements.warning.style.display = 'none';
 
   // submit button
   } else if (targetClass == 'submitBtn') {
 
     if (textValue) {
       insertQuote(textValue, randomColor);
-      clear(textArea);
-      popup.style.display = 'none';
+      clear(elements.textArea);
+      elements.popup.style.display = 'none';
     } else {
-      warning.style.display = 'block';
+      elements.warning.style.display = 'block';
     } 
 
   // cancel button
   } else if (targetClass == 'cancelBtn') {
 
-    clear(textArea);
-    popup.style.display = 'none';
-    warning.style.display = 'none';
+    clear(elements.textArea);
+    elements.popup.style.display = 'none';
+    elements.warning.style.display = 'none';
 
   } else if (targetClass == 'closeBtn') {
 

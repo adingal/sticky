@@ -30,6 +30,7 @@ body {
 }
 
 .main-header h1 {
+    align-self: center;
     font-size: 36px;
     letter-spacing: 1px;
     text-align: center;
@@ -37,6 +38,7 @@ body {
 }
 
 .main-header img {
+    align-self: center;
     cursor: pointer;
 }
 
